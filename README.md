@@ -37,15 +37,9 @@ To view the documentation, run:
 make view-docs
 ```
 
-## Tools used in this project
-* [Poetry](https://towardsdatascience.com/how-to-effortlessly-publish-your-python-package-to-pypi-using-poetry-44b305362f9f): Dependency management
-* [pre-commit plugins](https://pre-commit.com/): Automate code reviewing formatting
-* [pdoc](https://github.com/pdoc3/pdoc): Automatically create an API documentation for your project
-
 ## Project structure
 ```bash
 .
-├── .env
 ├── .flake8
 ├── .github
 │   └── workflows
@@ -54,13 +48,6 @@ make view-docs
 ├── .pre-commit-config.yaml
 ├── LICENSE
 ├── README.md
-├── config
-│   ├── __init__.py
-│   ├── config.yaml
-│   ├── model
-│   │   └── model1.yaml
-│   └── process
-│       └── process1.yaml
 ├── data
 │   ├── final
 │   │   └── .gitkeep
@@ -81,8 +68,7 @@ make view-docs
 │   ├── scripts
 │   │   └── fix_dot_env_file.py
 │   └── aiai
-│       ├── __init__.py
-│       └── demo.py
+│       └── __init__.py
 └── tests
     └── __init__.py
 ```
