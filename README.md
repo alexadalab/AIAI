@@ -5,6 +5,7 @@ Alexandra Institute Artificial Intelligence, a Python package for Danish data sc
 Developers:
 
 - Dan Saattrup Nielsen (dan.nielsen@alexandra.dk)
+- Anders Jess Pedersen (anders.j.pedersen@alexandra.dk)
 
 
 ## Setup
@@ -38,7 +39,6 @@ make view-docs
 
 ## Tools used in this project
 * [Poetry](https://towardsdatascience.com/how-to-effortlessly-publish-your-python-package-to-pypi-using-poetry-44b305362f9f): Dependency management
-* [hydra](https://hydra.cc/): Manage configuration files
 * [pre-commit plugins](https://pre-commit.com/): Automate code reviewing formatting
 * [pdoc](https://github.com/pdoc3/pdoc): Automatically create an API documentation for your project
 
