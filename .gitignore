@@ -89,5 +89,5 @@ target/
 # pytest cache
 .pytest_cache/
 
-# Hydra logs
-outputs
+# Documentation
+docs/aiai/
