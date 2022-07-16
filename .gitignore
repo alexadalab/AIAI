@@ -91,3 +91,6 @@ target/
 
 # Documentation
 docs/aiai/
+docs/index.html
+docs/aiai.html
+docs/search.json
