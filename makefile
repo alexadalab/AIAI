@@ -46,7 +46,7 @@ remove-env:
 	@echo "Removed virtual environment."
 
 docs:
-	@poetry run pdoc --html src/aiai -o docs --force
+	@poetry run pdoc --docformat google -o docs src/aiai
 	@echo "Saved documentation."
 
 view-docs:
@@ -58,3 +58,44 @@ clean:
 	@find . -type d -name "__pycache__" -delete
 	@rm -rf .pytest_cache
 	@echo "Cleaned repository."
+
+tree:
+	@tree -a \
+		-I .git \
+		-I .mypy_cache . \
+		-I .env \
+		-I .venv \
+		-I poetry.lock \
+		-I .ipynb_checkpoints \
+		-I dist \
+		-I .gitkeep \
+		-I docs \
+		-I .pytest_cache
+
+bump-major:
+	@poetry run python -m src.scripts.versioning --major
+	@echo "Bumped major version."
+
+bump-minor:
+	@poetry run python -m src.scripts.versioning --minor
+	@echo "Bumped minor version."
+
+bump-patch:
+	@poetry run python -m src.scripts.versioning --patch
+	@echo "Bumped patch version."
+
+publish:
+	@. .env; \
+		printf "Preparing to publish to PyPI. Have you ensured to change the package version with `make bump-X` for `X` being `major`, `minor` or `patch`? [y/n] : "; \
+		read -r answer; \
+		if [ "$${answer}" = "y" ]; then \
+			if [ "$${PYPI_API_TOKEN}" = "" ]; then \
+				echo "No PyPI API token specified in the `.env` file, so cannot publish."; \
+			else \
+				echo "Publishing to PyPI..."; \
+				poetry publish --build --username "__token__" --password "$${PYPI_API_TOKEN}"; \
+				echo "Published!"; \
+			fi \
+		else \
+			echo "Publishing aborted."; \
+		fi
