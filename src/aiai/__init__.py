@@ -1,1 +1,8 @@
-"""Alexandra Institute Artificial Intelligence, a Python package for Danish data science."""
+"""
+.. include:: ../../README.md
+"""
+
+import pkg_resources
+
+# Fetches the version of the package as defined in pyproject.toml
+__version__ = pkg_resources.get_distribution("aiai").version

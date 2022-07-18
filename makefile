@@ -59,6 +59,9 @@ clean:
 	@rm -rf .pytest_cache
 	@echo "Cleaned repository."
 
+test:
+	@pytest && readme-cov
+
 tree:
 	@tree -a \
 		-I .git \
@@ -86,11 +89,11 @@ bump-patch:
 
 publish:
 	@. .env; \
-		printf "Preparing to publish to PyPI. Have you ensured to change the package version with `make bump-X` for `X` being `major`, `minor` or `patch`? [y/n] : "; \
+		printf "Preparing to publish to PyPI. Have you ensured to change the package version with 'make bump-X' for 'X' being 'major', 'minor' or 'patch'? [y/n] : "; \
 		read -r answer; \
 		if [ "$${answer}" = "y" ]; then \
 			if [ "$${PYPI_API_TOKEN}" = "" ]; then \
-				echo "No PyPI API token specified in the `.env` file, so cannot publish."; \
+				echo "No PyPI API token specified in the '.env' file, so cannot publish."; \
 			else \
 				echo "Publishing to PyPI..."; \
 				poetry publish --build --username "__token__" --password "$${PYPI_API_TOKEN}"; \
